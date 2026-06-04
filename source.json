@@ -1,4 +1,11 @@
 {
-  "upstream": "Checkmarx/ast-github-action",
-  "version": "2.3.33"
+  "owner": "Checkmarx",
+  "repo": "ast-github-action",
+  "version": "2.3.36",
+  "commit_sha": "e3f1356c077fcb2ad2062ccc8c9f1631bae59128",
+  "url": "https://github.com/Checkmarx/ast-github-action",
+  "policy_sha": "ff50f15e4b79bfbf764dafdfd2579175a6ea9771",
+  "test_policy_sha": "843adf9e4b8f85d0c08b27b9d0b09dd094b54702",
+  "test_agent_version": "1",
+  "harden_agent_version": "1"
 }

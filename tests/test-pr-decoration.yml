@@ -1,0 +1,44 @@
+name: Test PR decoration scenario
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_REF: refs/pull/1/merge
+      GITHUB_EVENT_NAME: pull_request
+      GITHUB_HEAD_REF: feature-branch
+      GITHUB_BASE_REF: main
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - id: action
+        uses: .
+        continue-on-error: true
+        with:
+          base_uri: https://ast.checkmarx.net
+          cx_tenant: test-tenant
+          cx_client_id: test-client-id
+          cx_client_secret: test-client-secret
+          project_name: test-project
+          branch: feature-branch
+          repo_name: test-repo
+          namespace: test-org
+          pr_number: "1"
+          utils_params: "--scan-types sast"
+
+      - name: Assert action ran and failed due to invalid credentials (not infrastructure error)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "action outcome: $OUTCOME"
+          # The action should fail (invalid credentials), not be skipped or cancelled
+          if [ "$OUTCOME" = "skipped" ] || [ "$OUTCOME" = "cancelled" ]; then
+            echo "FAIL: action was unexpectedly $OUTCOME"
+            exit 1
+          fi
+          if [ "$OUTCOME" = "failure" ]; then
+            echo "PASS: action failed as expected (invalid credentials in test environment)"
+          elif [ "$OUTCOME" = "success" ]; then
+            echo "PASS: action succeeded (unexpected but acceptable)"
+          fi

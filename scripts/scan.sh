@@ -6,14 +6,14 @@
 
 # Parse global params (applied to all commands)
 if [ -n "${GLOBAL_PARAMS}" ]; then
-  eval "global_arr=(${GLOBAL_PARAMS})"
+  read -ra global_arr <<< "${GLOBAL_PARAMS}"
 else
   global_arr=()
 fi
 
 # Parse scan-specific params
 if [ -n "${SCAN_PARAMS}" ]; then
-  eval "scan_arr=(${SCAN_PARAMS})"
+  read -ra scan_arr <<< "${SCAN_PARAMS}"
 else
   scan_arr=()
 fi
@@ -21,7 +21,7 @@ fi
 # Backward compatibility: Support ADDITIONAL_PARAMS
 if [ -n "${ADDITIONAL_PARAMS}" ] && [ -z "${SCAN_PARAMS}" ]; then
   echo "⚠️  ADDITIONAL_PARAMS is deprecated. Please use SCAN_PARAMS instead."
-  eval "scan_arr=(${ADDITIONAL_PARAMS})"
+  read -ra scan_arr <<< "${ADDITIONAL_PARAMS}"
 fi
 
 # Combine global + scan-specific params

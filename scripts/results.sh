@@ -7,7 +7,7 @@
 if [ -n "$scanId" ]; then
   # Parse results-specific params
   if [ -n "${RESULTS_PARAMS}" ]; then
-    eval "results_arr=(${RESULTS_PARAMS})"
+    read -ra results_arr <<< "${RESULTS_PARAMS}"
   else
     results_arr=()
   fi

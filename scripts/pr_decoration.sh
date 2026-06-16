@@ -6,7 +6,7 @@
 
 # Parse utils-specific params
 if [ -n "${UTILS_PARAMS}" ]; then
-  eval "utils_arr=(${UTILS_PARAMS})"
+  read -ra utils_arr <<< "${UTILS_PARAMS}"
 else
   utils_arr=()
 fi

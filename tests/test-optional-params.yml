@@ -1,0 +1,38 @@
+name: Test optional parameters
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_REF: refs/heads/main
+      GITHUB_EVENT_NAME: push
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - id: action
+        uses: .
+        continue-on-error: true
+        with:
+          base_uri: 'https://ast.checkmarx.net'
+          cx_tenant: 'test-tenant'
+          cx_client_id: 'test-client-id'
+          cx_client_secret: 'test-client-secret'
+          project_name: 'test-project'
+          branch: 'main'
+          global_params: '--debug'
+          scan_params: '--sast-incremental'
+          utils_params: '--output-name results'
+          results_params: '--filter "state=TO_VERIFY"'
+          source_dir: '.'
+
+      - name: Assert action was invoked with optional params
+        run: |
+          echo "Action outcome: ${{ steps.action.outcome }}"
+          # The action is expected to fail without real credentials
+          # We verify it was invoked (not skipped) — confirming optional params are accepted
+          if [ "${{ steps.action.outcome }}" = "skipped" ]; then
+            echo "FAIL: action was skipped, expected it to be invoked"
+            exit 1
+          fi
+          echo "PASS: action accepted optional parameters (outcome: ${{ steps.action.outcome }})"

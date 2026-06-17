@@ -1,4 +1,6 @@
 {
-  "upstream": "Checkmarx/ast-github-action",
-  "version": "2.3.33"
+  "owner": "Checkmarx",
+  "repo": "ast-github-action",
+  "version": "",
+  "url": "https://github.com/Checkmarx/ast-github-action"
 }

@@ -1,0 +1,40 @@
+name: Test pull request event scenario
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_REF: refs/pull/42/merge
+      GITHUB_EVENT_NAME: pull_request
+      GITHUB_HEAD_REF: feature-branch
+      GITHUB_BASE_REF: main
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Run Checkmarx AST action for PR (expect failure - no real credentials)
+        id: action
+        uses: .
+        continue-on-error: true
+        with:
+          base_uri: https://ast.checkmarx.net
+          cx_tenant: test-tenant
+          cx_client_id: fake-client-id
+          cx_client_secret: fake-client-secret
+          project_name: test-project
+          branch: feature-branch
+          repo_name: test-repo
+          namespace: test-org
+          pr_number: "42"
+          source_dir: .
+
+      - name: Assert action was invoked for PR scenario (outcome is not skipped)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "action outcome: $OUTCOME"
+          if [ "$OUTCOME" = "skipped" ]; then
+            echo "FAIL: action was skipped, expected it to be invoked"
+            exit 1
+          fi
+          echo "PASS: action was invoked for PR scenario (outcome=$OUTCOME, expected failure due to fake credentials)"

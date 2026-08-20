@@ -1,0 +1,27 @@
+name: Create draft release
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  release-draft:
+    name: Release Draft
+    permissions:
+      contents: write  # for release-drafter/release-drafter to create a github release
+      pull-requests: write  # for release-drafter/release-drafter to add label to PR
+    runs-on: cx-public-ubuntu-x64
+    
+    steps:
+      - name: Create Release
+        id: draf_release
+        uses: step-security/release-drafter@bdf74d4b694b4525e34d030721a58ae1d5d5921c # v7.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

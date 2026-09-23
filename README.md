@@ -13,6 +13,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 | 2.3.37 | [`2.3.37`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.37) | [`ec3a253`](https://github.com/Checkmarx/ast-github-action/commit/ec3a253255247819dc866af0308807141789e8be) |
 | 2.3.38 | [`2.3.38`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.38) | [`32e25e3`](https://github.com/Checkmarx/ast-github-action/commit/32e25e324c3aa65045ee11412414abb8493a05db) |
 | 2.3.42 | [`2.3.42`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.42) | [`7b6a5ce`](https://github.com/Checkmarx/ast-github-action/commit/7b6a5cee621f92e6819d366dd48c9431314ac600) |
+| 2.3.45 | [`2.3.45`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.45) | [`882c03f`](https://github.com/Checkmarx/ast-github-action/commit/882c03f380f4bdddae2d068540cbd73efe0796ac) |
 
 ## Privacy
 

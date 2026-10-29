@@ -1,0 +1,33 @@
+name: Test global_params are forwarded to scan
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          base_uri: http://127.0.0.1:1
+          cx_tenant: test-tenant
+          cx_client_id: test-client-id
+          cx_client_secret: test-client-secret
+          project_name: act-test-project
+          branch: main
+          global_params: --help
+      - name: Assert cxcli contains help text (global_params were used)
+        env:
+          CXCLI: ${{ steps.action.outputs.cxcli }}
+          SCAN_ID: ${{ steps.action.outputs.cxScanID }}
+        run: |
+          echo "cxcli: $CXCLI"
+          if ! echo "$CXCLI" | grep -qi "usage"; then
+            echo "FAIL: expected help/usage text, global_params not forwarded"
+            exit 1
+          fi
+          if [ -n "$SCAN_ID" ]; then
+            echo "FAIL: expected no scan ID"
+            exit 1
+          fi
+          echo "PASS"

@@ -6,15 +6,16 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 
 ## Versions
 
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| 2.3.33 | [`2.3.33`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.33) | — |
-| 2.3.36 | [`2.3.36`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.36) | [`e3f1356`](https://github.com/Checkmarx/ast-github-action/commit/e3f1356c077fcb2ad2062ccc8c9f1631bae59128) |
-| 2.3.37 | [`2.3.37`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.37) | [`ec3a253`](https://github.com/Checkmarx/ast-github-action/commit/ec3a253255247819dc866af0308807141789e8be) |
-| 2.3.38 | [`2.3.38`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.38) | [`32e25e3`](https://github.com/Checkmarx/ast-github-action/commit/32e25e324c3aa65045ee11412414abb8493a05db) |
-| 2.3.42 | [`2.3.42`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.42) | [`7b6a5ce`](https://github.com/Checkmarx/ast-github-action/commit/7b6a5cee621f92e6819d366dd48c9431314ac600) |
-| 2.3.45 | [`2.3.45`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.45) | [`882c03f`](https://github.com/Checkmarx/ast-github-action/commit/882c03f380f4bdddae2d068540cbd73efe0796ac) |
-| 2.3.46 | [`2.3.46`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.46) | [`7006afa`](https://github.com/Checkmarx/ast-github-action/commit/7006afa846f6d23e3e9d351a001b9d8e59c3fb8c) |
+| Version | Tag | Upstream commit | Hardening report |
+|---------|-----|-----------------|------------------|
+| 2.3.33 | [`2.3.33`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.33) | — | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.33/HARDENING.md) |
+| 2.3.36 | [`2.3.36`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.36) | [`e3f1356`](https://github.com/Checkmarx/ast-github-action/commit/e3f1356c077fcb2ad2062ccc8c9f1631bae59128) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.36/HARDENING.md) |
+| 2.3.37 | [`2.3.37`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.37) | [`ec3a253`](https://github.com/Checkmarx/ast-github-action/commit/ec3a253255247819dc866af0308807141789e8be) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.37/HARDENING.md) |
+| 2.3.38 | [`2.3.38`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.38) | [`32e25e3`](https://github.com/Checkmarx/ast-github-action/commit/32e25e324c3aa65045ee11412414abb8493a05db) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.38/HARDENING.md) |
+| 2.3.42 | [`2.3.42`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.42) | [`7b6a5ce`](https://github.com/Checkmarx/ast-github-action/commit/7b6a5cee621f92e6819d366dd48c9431314ac600) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.42/HARDENING.md) |
+| 2.3.45 | [`2.3.45`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.45) | [`882c03f`](https://github.com/Checkmarx/ast-github-action/commit/882c03f380f4bdddae2d068540cbd73efe0796ac) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.45/HARDENING.md) |
+| 2.3.46 | [`2.3.46`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.46) | [`7006afa`](https://github.com/Checkmarx/ast-github-action/commit/7006afa846f6d23e3e9d351a001b9d8e59c3fb8c) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.46/HARDENING.md) |
+| 2.3.47 | [`2.3.47`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/tree/2.3.47) | [`58c998c`](https://github.com/Checkmarx/ast-github-action/commit/58c998c5d78b3ecfa51e7cbde852d5565d5dea0b) | [`HARDENING.md`](https://github.com/chainguard-actions/Checkmarx-ast-github-action/blob/2.3.47/HARDENING.md) |
 
 ## Privacy
 
